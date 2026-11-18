@@ -1,0 +1,21 @@
+# Entornos virtuales
+.venv/
+.venv-dashboard/
+.venv-local/
+
+# Python
+__pycache__/
+*.pyc
+
+# Dataset generado
+Data/processed/dataset_limpio.csv
+
+# Frontend
+web/node_modules/
+web/dist/
+
+# VS Code
+.vscode/
+
+# Logs
+*.log

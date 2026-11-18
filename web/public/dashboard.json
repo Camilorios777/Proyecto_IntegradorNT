@@ -1,0 +1,321 @@
+{
+  "resumen": {
+    "registros_originales": 10150,
+    "registros_limpios": 10000,
+    "columnas": 25,
+    "columnas_archivo": 23,
+    "origen": "datos_estudiantes.csv",
+    "desertores": 3236,
+    "tasa_desercion": 0.3236,
+    "decisiones": 17,
+    "estados": [
+      {
+        "estado": "activo",
+        "total": 5878
+      },
+      {
+        "estado": "desertor",
+        "total": 3236
+      },
+      {
+        "estado": "graduado",
+        "total": 886
+      }
+    ]
+  },
+  "generado_en": "1794965359683190200",
+  "respuestas": {
+    "programa": {
+      "nombre": "Ingeniería Industrial",
+      "total": 1322,
+      "desertores": 531,
+      "tasa": 0.4016641452344932,
+      "grupos": [
+        {
+          "nombre": "Ingeniería Industrial",
+          "total": 1322.0,
+          "desertores": 531.0,
+          "tasa": 0.4016641452344932
+        },
+        {
+          "nombre": "Ingeniería de Sistemas",
+          "total": 1432.0,
+          "desertores": 548.0,
+          "tasa": 0.38268156424581007
+        },
+        {
+          "nombre": "Diseño Gráfico",
+          "total": 870.0,
+          "desertores": 311.0,
+          "tasa": 0.35747126436781607
+        },
+        {
+          "nombre": "Enfermería",
+          "total": 1167.0,
+          "desertores": 365.0,
+          "tasa": 0.31276778063410454
+        },
+        {
+          "nombre": "Derecho",
+          "total": 1501.0,
+          "desertores": 460.0,
+          "tasa": 0.30646235842771485
+        },
+        {
+          "nombre": "Administración de Empresas",
+          "total": 1343.0,
+          "desertores": 395.0,
+          "tasa": 0.29411764705882354
+        },
+        {
+          "nombre": "Contaduría Pública",
+          "total": 1196.0,
+          "desertores": 321.0,
+          "tasa": 0.2683946488294314
+        },
+        {
+          "nombre": "Psicología",
+          "total": 1169.0,
+          "desertores": 305.0,
+          "tasa": 0.2609067579127459
+        }
+      ]
+    },
+    "beca": {
+      "becados": {
+        "total": 2757,
+        "desertores": 605,
+        "tasa": 0.21944142183532825
+      },
+      "no_becados": {
+        "total": 7243,
+        "desertores": 2631,
+        "tasa": 0.3632472732293249
+      },
+      "grupos": [
+        {
+          "nombre": "no",
+          "total": 7243.0,
+          "desertores": 2631.0,
+          "tasa": 0.3632472732293249
+        },
+        {
+          "nombre": "sí",
+          "total": 2757.0,
+          "desertores": 605.0,
+          "tasa": 0.21944142183532825
+        }
+      ]
+    },
+    "jornada": {
+      "menor_promedio": "Nocturna",
+      "grupos": [
+        {
+          "nombre": "Nocturna",
+          "total": 2754.0,
+          "promedio": 3.471285403050109
+        },
+        {
+          "nombre": "Fin de semana",
+          "total": 984.0,
+          "promedio": 3.703719512195122
+        },
+        {
+          "nombre": "Diurna",
+          "total": 6262.0,
+          "promedio": 3.723562759501757
+        }
+      ]
+    },
+    "materias_reprobadas": {
+      "grupos": [
+        {
+          "nombre": "activo",
+          "total": 5878.0,
+          "promedio": 0.6218101395032324
+        },
+        {
+          "nombre": "desertor",
+          "total": 3236.0,
+          "promedio": 3.0661310259579726
+        }
+      ]
+    },
+    "asistencia": {
+      "grupos": [
+        {
+          "nombre": "Q1",
+          "total": 2456.0,
+          "desertores": 1518.0,
+          "tasa": 0.6180781758957655
+        },
+        {
+          "nombre": "Q2",
+          "total": 2466.0,
+          "desertores": 912.0,
+          "tasa": 0.36982968369829683
+        },
+        {
+          "nombre": "Q3",
+          "total": 2431.0,
+          "desertores": 503.0,
+          "tasa": 0.20691073632250104
+        },
+        {
+          "nombre": "Q4",
+          "total": 2447.0,
+          "desertores": 227.0,
+          "tasa": 0.09276665304454434
+        }
+      ]
+    }
+  },
+  "decisiones": [
+    {
+      "paso": 3,
+      "columna": "asistencia_pct",
+      "accion": "quitar el símbolo % y convertir a número",
+      "filas_afectadas": 300,
+      "justificacion": "Con el símbolo % la columna era texto y no se podía promediar."
+    },
+    {
+      "paso": 3,
+      "columna": "asistencia_pct",
+      "accion": "cambiar '-' por nulo",
+      "filas_afectadas": 202,
+      "justificacion": "El guion significa 'sin dato'; se convierte en nulo real."
+    },
+    {
+      "paso": 3,
+      "columna": "horas_trabajo_semana",
+      "accion": "cambiar '-' por nulo y convertir a número",
+      "filas_afectadas": 2822,
+      "justificacion": "El guion hacía que la columna fuera texto. Más adelante se decide qué hacer con esos nulos."
+    },
+    {
+      "paso": 3,
+      "columna": "distancia_km",
+      "accion": "cambiar 999 por nulo",
+      "filas_afectadas": 152,
+      "justificacion": "999 km no es una distancia real, es un código de 'sin dato'."
+    },
+    {
+      "paso": 4,
+      "columna": "programa, jornada, genero, ciudad_procedencia",
+      "accion": "unificar variantes de escritura",
+      "filas_afectadas": 1721,
+      "justificacion": "Sin esto 'Psicologia' y 'Psicología' (o 'F' y 'Femenino') contarían como grupos distintos."
+    },
+    {
+      "paso": 5,
+      "columna": "fecha_matricula",
+      "accion": "convertir las dos formas de escribir la fecha a un solo formato",
+      "filas_afectadas": 3052,
+      "justificacion": "Con dos formatos no se pueden comparar ni ordenar las fechas. Se usó formato explícito para no confundir día y mes."
+    },
+    {
+      "paso": 6,
+      "columna": "todas",
+      "accion": "eliminar filas duplicadas",
+      "filas_afectadas": 150,
+      "justificacion": "Eran filas idénticas con el mismo id_estudiante, o sea el mismo estudiante repetido."
+    },
+    {
+      "paso": 7,
+      "columna": "promedio_acumulado",
+      "accion": "completar con la mediana del programa",
+      "filas_afectadas": 298,
+      "justificacion": "Eliminar estas filas perdería estudiantes. La mediana casi no se afecta por valores extremos y no inventa una nota fuera de lo normal del programa."
+    },
+    {
+      "paso": 7,
+      "columna": "ciudad_procedencia",
+      "accion": "rellenar con 'Sin dato'",
+      "filas_afectadas": 100,
+      "justificacion": "No se puede adivinar de dónde viene el estudiante; se conserva la fila y se marca que falta."
+    },
+    {
+      "paso": 7,
+      "columna": "tipo_colegio",
+      "accion": "rellenar con 'Sin dato'",
+      "filas_afectadas": 150,
+      "justificacion": "No se puede adivinar el tipo de colegio; se conserva la fila y se marca que falta."
+    },
+    {
+      "paso": 7,
+      "columna": "distancia_km",
+      "accion": "dejar como nulo",
+      "filas_afectadas": 347,
+      "justificacion": "No se usa en las cinco preguntas e inventar una distancia sería poner un dato falso."
+    },
+    {
+      "paso": 7,
+      "columna": "asistencia_pct",
+      "accion": "dejar como nulo",
+      "filas_afectadas": 200,
+      "justificacion": "No se puede inventar una asistencia. Estos estudiantes no entran en los cuartiles de la pregunta 5."
+    },
+    {
+      "paso": 7,
+      "columna": "motivo_retiro",
+      "accion": "no tocar",
+      "filas_afectadas": 6764,
+      "justificacion": "Está vacío en quienes no desertaron porque la pregunta no aplica. Es un nulo esperado, no un error."
+    },
+    {
+      "paso": 8,
+      "columna": "promedio_acumulado",
+      "accion": "cambiar promedios mayores a 5 por la mediana del programa",
+      "filas_afectadas": 15,
+      "justificacion": "La escala institucional es de 0 a 5, así que 45, 62 o 78 son errores de registro."
+    },
+    {
+      "paso": 8,
+      "columna": "edad",
+      "accion": "cambiar edades fuera de 15 a 60 por la mediana",
+      "filas_afectadas": 12,
+      "justificacion": "Edades como 150 o 12 años no son posibles en estudiantes de educación superior."
+    },
+    {
+      "paso": 8,
+      "columna": "horas_trabajo_semana",
+      "accion": "poner 0 horas a quienes no trabajan",
+      "filas_afectadas": 2781,
+      "justificacion": "Si el estudiante no trabaja, sus horas de trabajo son cero. No es un dato que falte."
+    },
+    {
+      "paso": 8,
+      "columna": "horas_trabajo_semana",
+      "accion": "cambiar horas mayores a 100 por la mediana de quienes trabajan",
+      "filas_afectadas": 30,
+      "justificacion": "Una semana tiene 168 horas; valores de 200 son imposibles."
+    }
+  ],
+  "graficos": [
+    {
+      "titulo": "Datos faltantes por columna",
+      "archivo": "mapa_faltantes.png",
+      "interpretacion": "Cada barra representa una columna. Cuanto más larga es, más registros faltantes tiene; la etiqueta muestra la cantidad y el porcentaje."
+    },
+    {
+      "titulo": "Promedios y edades antes y después de limpiar",
+      "archivo": "distribuciones_antes_despues.png",
+      "interpretacion": "Compara los valores centrales y los extremos antes y después de corregir los datos. Cada recuadro resume la distribución de un grupo."
+    },
+    {
+      "titulo": "Deserción por programa",
+      "archivo": "tasa_desercion_por_programa.png",
+      "interpretacion": "La barra muestra qué porcentaje de estudiantes de cada programa desertó. Un porcentaje mayor indica más deserción observada en ese grupo."
+    },
+    {
+      "titulo": "Deserción por nivel de asistencia",
+      "archivo": "tasa_desercion_por_asistencia.png",
+      "interpretacion": "Q1 agrupa la asistencia más baja y Q4 la más alta. Compara los porcentajes de deserción de cada grupo; la relación no prueba causalidad."
+    }
+  ],
+  "reflexiones": {
+    "asociacion": "La asociación entre baja asistencia, más materias reprobadas y deserción no demuestra causalidad. Los resultados describen patrones en estos datos.",
+    "motivo_retiro": "No es una variable predictiva válida para anticipar la deserción: solo se conoce después del retiro y filtraría información posterior al resultado.",
+    "uso_responsable": "Las variables sensibles deben analizarse con un propósito legítimo, protección de datos y revisión de posibles sesgos; no deben interpretarse como causas individuales."
+  }
+}

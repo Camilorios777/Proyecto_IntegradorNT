@@ -1,0 +1,18 @@
+paso,columna,accion,filas_afectadas,justificacion
+3,asistencia_pct,quitar el símbolo % y convertir a número,300,Con el símbolo % la columna era texto y no se podía promediar.
+3,asistencia_pct,cambiar '-' por nulo,202,El guion significa 'sin dato'; se convierte en nulo real.
+3,horas_trabajo_semana,cambiar '-' por nulo y convertir a número,2822,El guion hacía que la columna fuera texto. Más adelante se decide qué hacer con esos nulos.
+3,distancia_km,cambiar 999 por nulo,152,"999 km no es una distancia real, es un código de 'sin dato'."
+4,"programa, jornada, genero, ciudad_procedencia",unificar variantes de escritura,1721,Sin esto 'Psicologia' y 'Psicología' (o 'F' y 'Femenino') contarían como grupos distintos.
+5,fecha_matricula,convertir las dos formas de escribir la fecha a un solo formato,3052,Con dos formatos no se pueden comparar ni ordenar las fechas. Se usó formato explícito para no confundir día y mes.
+6,todas,eliminar filas duplicadas,150,"Eran filas idénticas con el mismo id_estudiante, o sea el mismo estudiante repetido."
+7,promedio_acumulado,completar con la mediana del programa,298,Eliminar estas filas perdería estudiantes. La mediana casi no se afecta por valores extremos y no inventa una nota fuera de lo normal del programa.
+7,ciudad_procedencia,rellenar con 'Sin dato',100,No se puede adivinar de dónde viene el estudiante; se conserva la fila y se marca que falta.
+7,tipo_colegio,rellenar con 'Sin dato',150,No se puede adivinar el tipo de colegio; se conserva la fila y se marca que falta.
+7,distancia_km,dejar como nulo,347,No se usa en las cinco preguntas e inventar una distancia sería poner un dato falso.
+7,asistencia_pct,dejar como nulo,200,No se puede inventar una asistencia. Estos estudiantes no entran en los cuartiles de la pregunta 5.
+7,motivo_retiro,no tocar,6764,"Está vacío en quienes no desertaron porque la pregunta no aplica. Es un nulo esperado, no un error."
+8,promedio_acumulado,cambiar promedios mayores a 5 por la mediana del programa,15,"La escala institucional es de 0 a 5, así que 45, 62 o 78 son errores de registro."
+8,edad,cambiar edades fuera de 15 a 60 por la mediana,12,Edades como 150 o 12 años no son posibles en estudiantes de educación superior.
+8,horas_trabajo_semana,poner 0 horas a quienes no trabajan,2781,"Si el estudiante no trabaja, sus horas de trabajo son cero. No es un dato que falte."
+8,horas_trabajo_semana,cambiar horas mayores a 100 por la mediana de quienes trabajan,30,Una semana tiene 168 horas; valores de 200 son imposibles.
